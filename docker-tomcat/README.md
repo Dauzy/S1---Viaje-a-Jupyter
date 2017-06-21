@@ -28,3 +28,12 @@ $ sudo docker build -t my_tomcat .
 $ sudo docker run --name tomcat-server -p 8080:8080 -d my_tomcat
 ```
 * Iremos a la direccion ```localhost:8080``` y verificamos que el contenedor este arriba
+
+# Explicacion Breve de un Dockerfile
+Los contenedores en docker son creados a partir de una imagen la cual es construida a partir de un dockerfile.
+
+Un dockerfile es un script que contiene una serie de instrucciones, las cuales se ejecutaran secuencialmente, y crear una nueva imagen automaticamente.
+
+Nota: Al ejecutar comandos del gestor de paquetes (yum install o apt-get install) se crea una nueva capa.
+
+Una dockerfile se empieza definiendo la imagen por la que partira para crear una nueva imagen que se utilizara para crear un nuevo contenedor.

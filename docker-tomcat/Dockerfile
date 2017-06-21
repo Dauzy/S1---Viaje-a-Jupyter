@@ -1,6 +1,7 @@
 FROM openjdk:8-jre
+#Nos basamos en una imagen java
 MAINTAINER Daniel Arenas <darenas.6287@gmail.com>
-
+#ponemos nuestras variables de entorno
 ENV CATALINA_HOME /opt/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
 RUN mkdir -p "$CATALINA_HOME"
@@ -8,8 +9,8 @@ WORKDIR $CATALINA_HOME
 ENV TOMCAT_MAJOR 8
 ENV TOMCAT_VERSION 8.5.15
 ENV TOMCAT_TGZ_URL https://www.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
-# descarga e instalación de Tomcat
 
+#Descargamos e instalamos tomcat
 RUN set -x \
  \
  && cd /tmp \
@@ -19,7 +20,7 @@ RUN set -x \
  rm -rf /opt/tomcat/webapps/examples && \
  rm -rf /opt/tomcat/webapps/docs
 
-# indica a Docker en qué puerto escuchará el proceso
+# exponemos el puerto 8080 para que docker escuche el proceso
 EXPOSE 8080
 # ejecuta catalina.sh con el parámetro run, para arrancar Tomcat
 CMD ["catalina.sh", "run"]
