@@ -1,0 +1,29 @@
+# Levantar HDFS en un contenedor
+
+Como HDFS es parte de Hadoop se descargó la imagen de Hadoop completa. 
+
+1) Se hace un pull a la imagen:
+
+`docker pull sequenceiq/hadoop-docker:2.7.0`
+
+
+2) Se corre la imagen
+
+`docker run -it sequenceiq/hadoop-docker:2.7.0 /etc/bootstrap.sh -bash`
+
+3) Testing:
+
+* Nos colocamos en el directorio de Hadoop:
+
+	`cd $HADOOP_PREFIX`
+
+* Se ejecuta un mapreduce:
+
+	`bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.jar grep input output 'dfs[a-z.]+'`
+
+* Para ver el output:
+
+	`bin/hdfs dfs -cat output/*`
+
+Por último, con este tutorial se puede comprobar que el hdfs está funcionando con sus namenodes y datanodes. 
+
