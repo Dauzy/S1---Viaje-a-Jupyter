@@ -1,4 +1,4 @@
-#Ansible, creación de Playbook para la automatización de ordenes de Docker*
+#Ansible, creación de Playbook para la automatización de ordenes de Docker
 
 Ay Dios no sé cómo se hace esto, pero vamo a darle!
 
