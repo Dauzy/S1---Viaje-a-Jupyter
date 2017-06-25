@@ -6,5 +6,5 @@ Ay Dios no sé cómo se hace esto, pero vamo a darle!
 
 ## 1.- Instalar Ansible
 ```
-$ sudo yum ansible
+$ sudo yum  install ansible
 ```
