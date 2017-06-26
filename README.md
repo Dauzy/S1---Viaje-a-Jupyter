@@ -32,12 +32,21 @@ $ ansible -m ping all
 ## 5.- Ahora haremos un ejemplo de un Playbook (El archivo que generemos debe ir con la extención .yml)
 ```YAML
 ---
-- hosts: [tests] # AQUÍ ESPECIFICAMOS AL HOST O GRUPO DE HOST 
+- hosts: martha # AQUÍ ESPECIFICAMOS AL HOST O GRUPO DE HOST 
   remote_user: root # USUARIO QUE OCUPAMOS PARA EJECUTAR LAS TAREA
   tasks:
-    - name: Ensure the Docker daemon has started # NOMBRE DE LATAREA
-      service: name=docker state=started #  SERVICIO QUE QUEREMOS LEVANTAR
-      become: yes 
+   - name: Levantar el servicio de Docker 
+     service: name=docker state=started # LEVANTAMOS EL DEMONIO DEDOCKER
+   - name: Crear un contenedor de apache 
+     docker_container: #CREAMOS  UN CONTENEDOR
+        name: Apache #NOMBRE DEL CONTENEDOR
+        image: httpd #IMAGEN DE LA CUAL APARTIR VAMOS A CREAR EL CONTENEDOR
+        volumes: /opt/apache:/var/www/html # VOLUMEN  QUE ESTAMOS MONTANDO DEL HOST AL CONTENEDOR
+        ports: 8080:80 # PUERTO DONDE ESTAMOS PUBLICANDO EL SERVICIO
+   - name: Mostrar todos los contenedores que se están ejecutándose
+     command: docker ps 
+     register: docker
+   - debug: var=docker.stdout
 ```
 ## 6.- Ahora ejecutamos nuestro Playbook
 ```
