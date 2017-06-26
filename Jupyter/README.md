@@ -22,3 +22,4 @@ $ sudo docker run sudo docker run --name jupy -it --rm \
 for i in range(50):
     print(i)
 ```
+![example imaga](https://github.com/Dauzy/S1---Viaje-a-Jupyter/blob/daniel/Jupyter/figure2.png)
