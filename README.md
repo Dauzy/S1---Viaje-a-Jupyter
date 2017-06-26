@@ -43,6 +43,8 @@ $ ansible -m ping all
 ```
 ansible-playbook nombre_playbook.yml
 ```
+ * Al ejecutar  nuesro Playbook la salida debería ser la siguiente.
+ ![alt text](https://github.com/Dauzy/S1---Viaje-a-Jupyter/tree/martha_cr/imagen3.png)
 
 
 
