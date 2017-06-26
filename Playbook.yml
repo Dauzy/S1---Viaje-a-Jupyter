@@ -1,0 +1,7 @@
+---
+- hosts: [tests] # AQUÍ ESPECIFICAMOS AL HOST O GRUPO DE HOST 
+  remote_user: root # USUARIO QUE OCUPAMOS PARA EJECUTAR LAS TAREA
+  tasks:
+    - name: Ensure the Docker daemon has started # NOMBRE DE LATAREA
+      service: name=docker state=started #  SERVICIO QUE QUEREMOS LEVANTAR
+      become: yes 
