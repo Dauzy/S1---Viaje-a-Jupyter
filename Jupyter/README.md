@@ -10,7 +10,7 @@ $ sudo docker pull jupyter/scipy-notebook
 * Ahora correremos el contenedor, pasandole el puerto y un volumen para que podamos persistir nuestros notebooks.
 ```
 $ sudo docker run sudo docker run --name jupy -it --rm \
--v /home/administradorcito/Documentos/jupyter:/home/jovyan/work \
+-v /path/de/tu/host:/home/jovyan/work \
 -p 8888:8888 jupyter/scipy-notebook
 ```
 
