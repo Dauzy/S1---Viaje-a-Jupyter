@@ -14,7 +14,7 @@ $ ssh-keygen -t rsa
 $ ssh-copy-id usuario@[host o ip]
 ```
 ## 3.- Editar el inventory o archivo de configuración de los hosts de Ansible
-	*###  El archivo está en la siguiente ruta  /etc/ansible
+* El archivo está en la siguiente ruta  /etc/ansible
 * Una vez que ya estamos en el archivo hosts tenemos que agregar las siguientes lineas:
 ```
 [tests]
