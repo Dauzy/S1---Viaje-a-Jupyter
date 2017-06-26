@@ -12,7 +12,18 @@ Nota: se da por hecho de que tiene instalado el jdk de java, intelliJ y [maven](
   -DgroupId=com.miapp.app \
   -DartifactId=miapp
   ```
-  * Abrimos IntelliJ, creamos un proyecto de maven, damos clic en el check de "Create from archetype" y seleccionamos el de "maven.archetype.quickstart", damos en siguiente, llenamos el groupID y archetypeID, y damos en siguiente, siguiente, nombre del proyecto y finalizamos.
+  * Abrimos IntelliJ, creamos un proyecto de maven, damos clic en el check de "Create from archetype" y seleccionamos el de "maven.archetype.quickstart".
+  ![create project](https://github.com/Dauzy/S1---Viaje-a-Jupyter/blob/daniel/maven-cucumber/maven1.png)
+
+  * Damos en siguiente, llenamos el groupID y archetypeID.
+  ![group and archetype](https://github.com/Dauzy/S1---Viaje-a-Jupyter/blob/daniel/maven-cucumber/maven2.png)
+
+  * Definimos el directorio home de maven (podemos obtenerlo con ```mvn -v```).
+  ![maven directory](https://github.com/Dauzy/S1---Viaje-a-Jupyter/blob/daniel/maven-cucumber/maven3.png)
+
+  * Definimos el nombre del proyecto y finalizamos
+
+  ## 2. Configuracion del proyecto
 
   * Borramos App.java y AppTest.java
 
@@ -133,8 +144,8 @@ Nota: se da por hecho de que tiene instalado el jdk de java, intelliJ y [maven](
     Feature: Calculadora
       quiero que un usuario sume dos numeros
       y evaluar conocimientos sobre la herramientas
-      
-    Scenario: Se sumaran dos valores    #calculadora.feature:5
+
+    Scenario: Se sumaran dos valores #calculadora.feature:5
       #CalculadoraStep.inicializaCalculadora()
       Given Calculadora inicializada  
       #CalculadoraStep.sumaValores(int,int)
