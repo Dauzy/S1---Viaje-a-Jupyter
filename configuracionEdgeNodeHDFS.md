@@ -2,7 +2,7 @@
 
 Esta configuración se estableció  para poder enviar el archivo de la tabla creada en la máquina virtual de Teradata hacia hdfs  usando el comando `hdfs dfs -put` . 
 
-**NOTA: se hizo en un hdfs local. **
+** NOTA: se hizo en un hdfs local. **
 
 Primero hay que descargar el paquete de hadoop desde:
 
@@ -23,61 +23,61 @@ hadoop-env.sh
 
 Editar en core-site.xml:
 
-`<configuration>
-<property>
-  <name>fs.default.name</name>
-    <value>hdfs://MASTERHADOOP:9000</value>
-</property>
-</configuration>`
+`<configuration>`
+`<property>`
+  `<name>fs.default.name</name>`
+    `<value>hdfs://MASTERHADOOP:9000</value>`
+`</property>`
+`</configuration>`
 
 Editar en yarn-site.xml:
 
-`<property>
-  <name>yarn.nodemanager.aux-services</name>
-    <value>mapreduce_shuffle</value>
-</property> 
-<property>
-  <name>yarn.resourcemanager.address</name>
-  <value>MASTERHADOOP:8032</value>
-</property>
-</configuration>`
+`<property>`
+  `<name>yarn.nodemanager.aux-services</name>`
+    `<value>mapreduce_shuffle</value>`
+`</property> `
+`<property>`
+ `<name>yarn.resourcemanager.address</name>`
+  `<value>MASTERHADOOP:8032</value>`
+`</property>`
+`</configuration>`
 
 Editar archivo mapred-site.xml:
 
-`<configuration>
-<property>
-  <name>mapreduce.framework.name</name>
-   <value>yarn</value>
- </property>
-<property>
-  <name>mapreduce.jobtracker.address</name>
-   <value>MASTERHADOOP:9001</value>
- </property>
-</configuration>`
+`<configuration>`
+`<property>`
+  `<name>mapreduce.framework.name</name>`
+   `<value>yarn</value>`
+ `</property>`
+`<property>`
+ ` <name>mapreduce.jobtracker.address</name>`
+  ` <value>MASTERHADOOP:9001</value>`
+ `</property>`
+`</configuration>`
 
 Establecer  o cambiar la variable JAVA_HOME dentro de etc/hadoop/hadoop-env.sh:
 
 En el caso de mi máquina, la ruta es: 
 
-`# The java implementation to use.
-export JAVA_HOME=${JAVA_HOME}
-export JAVA_HOME='/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.131-3.b12.el7_3.x86_64/jre/'`
+`# The java implementation to use.`
+
+`export JAVA_HOME='/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.131-3.b12.el7_3.x86_64/jre/'`
 
 Configurar las variables de entorno de los siguientes archivos del  host:
 
 En el ~/.bashrc:
 
-`export JAVA_HOME=/location/to/your/path7/jdk8/
-export HADOOP_HOME=home/path/to/hadoop
-export HADOOP_INSTALL=$HADOOP_HOME
-export HADOOP_MAPRED_HOME=$HADOOP_HOME
-export HADOOP_COMMON_HOME=$HADOOP_HOME
-export HADOOP_HDFS_HOME=$HADOOP_HOME
-export YARN_HOME=$HADOOP_HOME
-export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
-export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$JAVA_HOME/bin
-export HADOOP_CONF_DIR="${HADOOP_HOME}/etc/hadoop/"
-export HADOOP_LIBEXEC_DIR="${HADOOP_HOME}/libexec"`
+`export JAVA_HOME=/location/to/your/path7/jdk8/`
+`export HADOOP_HOME=home/path/to/hadoop`
+`export HADOOP_INSTALL=$HADOOP_HOME`
+`export HADOOP_MAPRED_HOME=$HADOOP_HOME`
+`export HADOOP_COMMON_HOME=$HADOOP_HOME`
+`export HADOOP_HDFS_HOME=$HADOOP_HOME`
+`export YARN_HOME=$HADOOP_HOME`
+`export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native`
+`export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$JAVA_HOME/bin`
+`export HADOOP_CONF_DIR="${HADOOP_HOME}/etc/hadoop/"`
+`export HADOOP_LIBEXEC_DIR="${HADOOP_HOME}/libexec"`
 
 En /etc/hosts: 
 
@@ -127,26 +127,26 @@ Para saber la ruta  del jdk de java:
 
 Después editar el archivo ~/.bashrc:
 
-`export JAVA_HOME=path_jdk_java
-export HADOOP_HOME=/path_to_hadoop_home
-export HADOOP_INSTALL=$HADOOP_HOME
-export HADOOP_MAPRED_HOME=$HADOOP_HOME
-export HADOOP_COMMON_HOME=$HADOOP_HOME
-export HADOOP_HDFS_HOME=$HADOOP_HOME
-export YARN_HOME=$HADOOP_HOME
-export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
-export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$JAVA_HOME/bin
-export HADOOP_CONF_DIR="${HADOOP_HOME}/etc/hadoop/"
-export HADOOP_LIBEXEC_DIR="${HADOOP_HOME}/libexec"`
+`export JAVA_HOME=path_jdk_java`
+`export HADOOP_HOME=/path_to_hadoop_home`
+`export HADOOP_INSTALL=$HADOOP_HOME`
+`export HADOOP_MAPRED_HOME=$HADOOP_HOME`
+`export HADOOP_COMMON_HOME=$HADOOP_HOME`
+`export HADOOP_HDFS_HOME=$HADOOP_HOME`
+`export YARN_HOME=$HADOOP_HOME`
+`export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native`
+`export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$JAVA_HOME/bin`
+`export HADOOP_CONF_DIR="${HADOOP_HOME}/etc/hadoop/"`
+`export HADOOP_LIBEXEC_DIR="${HADOOP_HOME}/libexec"`
 
 Dentro del archivo etc/hadoop/core-site.xml del hadoop local ubicar el value:
 
-`<configuration>
-<property>
-  <name>fs.default.name</name>
-    <value>hdfs://MASTERHADOOP:9000</value> --> copiar esta dirección
-</property>
-</configuration>`
+`<configuration>`
+`<property>`
+ ` <name>fs.default.name</name>`
+  `  <value>hdfs://MASTERHADOOP:9000</value> --> copiar esta dirección`
+`</property>`
+`</configuration>`
 
 Esa direccion se pondrá en el put. 
 
