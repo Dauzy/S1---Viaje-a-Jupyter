@@ -41,7 +41,7 @@ Configurar el  etc/hadoop/core-site.xml:
 
 ```
 
-###### En la máquina virtual configurar los archivos:
+### En la máquina virtual configurar los archivos:
 1. En el etc/hadoop/core-site.xml:
 ```xml
 <configuration>
