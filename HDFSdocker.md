@@ -1,4 +1,4 @@
-# Configuración de un HDFS en contenedor para recibir archivos desde una VM
+# Configuración para enviar archivos desde una VM a contenedor HDFS
 
 Se utilizó una imagen del docker registry del equipo QA de datio:
 Logearse en el docker registry, para ello pedir permiso al equipo de QA cómo hacerlo.
@@ -31,35 +31,40 @@ Agregar la siguiente línea al archivo /etc/hosts del host local:
 
 Configurar el  etc/hadoop/core-site.xml:
 
-`<configuration>`
-`<property>`
-`<name>fs.defaultFS</name>`
-`<value>hdfs://hdfs.dev.datio.com:9000</value>`
-`</property>`
-`</configuration>`
+```xml 
+<configuration>
+<property>
+<name>fs.defaultFS</name>
+<value>hdfs://hdfs.dev.datio.com:9000</value>
+</property>
+</configuration>
 
- 
+```
 
 ###### En la máquina virtual configurar los archivos:
 1. En el etc/hadoop/core-site.xml:
+```xml
+<configuration>
+<property>
+<name>fs.defaultFS</name>
+<value>hdfs://hdfs.dev.datio.com:9000</value>
+</property>
+</configuration>
 
-`figuration>`
-`<property>`
-`<name>fs.defaultFS</name>`
-`<value>hdfs://hdfs.dev.datio.com:9000</value>`
-`</property>`
-`</configuration>`
+```
 
 2. En etc/hadoop/hdfs-site.xml:
 
-`<property>`
-     `<name>dfs.datanode.use.datanode.hostname</name>`
-    `<value>true</value>`
-  `</property>`
-  `<property>`
-    `<name>dfs.client.use.datanode.hostname</name>`
-    `<value>true</value>`
-  `</property>`
+```xml
+<property>
+     <name>dfs.datanode.use.datanode.hostname</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>dfs.client.use.datanode.hostname</name>
+    <value>true</value>`
+  </property>
+  ```
 
 3. En el /etc/hosts de la maquima virtual agregar:
 
