@@ -9,7 +9,7 @@ $ sudo docker pull jupyter/all-spark-notebook
 
 * Ahora correremos el contenedor, pasandole el puerto y un volumen para que podamos persistir nuestros notebooks.
 ```
-$ sudo docker run sudo docker run --name jupy -it --rm \
+$ sudo docker run sudo docker run --name jupy -it -d \
 -v /path/de/tu/host:/home/jovyan/work \
 -p 8888:8888 jupyter/all-spark-notebook
 ```
