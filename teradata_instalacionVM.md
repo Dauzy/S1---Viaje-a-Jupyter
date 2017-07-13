@@ -131,11 +131,11 @@ Para ver los comandos de BTEQ:
  
 
 ### Crear una base de datos y una tabla: 
-
+```SQL
 `CREATE DATABASE datio 
 AS PERMANENT = 500000, FALLBACK, BEFORE JOURNAL, 
 DUAL AFTER JOURNAL, DEFAULT JOURNAL TABLE=datio.fin_copy;`
-
+```
 Listar las bases de datos para comprobar que se creó la base datio:
 
 `SELECT * FROM DBC.Databases;`
@@ -145,7 +145,7 @@ Para usar a una base de datos en particular:
 `set session database datio;`
 
 Crear una tabla: 
-
+```SQL
 `CREATE SET TABLE EMPLOYEE ( 
    EmployeeNo INTEGER, 
    FirstName VARCHAR(30), 
@@ -155,7 +155,7 @@ Crear una tabla:
    DepartmentNo BYTEINT 
 ) 
 UNIQUE PRIMARY INDEX ( EmployeeNo );`
-
+```
 
 Insertar datos a la tabla:
 ```sql
@@ -175,7 +175,6 @@ VALUES (
    '2005-03-27', 
    01
 );
-```
 INSERT INTO Employee (
    EmployeeNo, 
    FirstName, 
@@ -223,8 +222,8 @@ VALUES (
 '1982-08-13',
 '2001-02-10',
 03
-);`
-
+);
+```
 Comprobar que se ingresaron los datos:
 Primero hay que configurar el tamaño de la terminal para que se desplieguen todas las columnas:
 
@@ -235,7 +234,7 @@ Select para ver todos los registros:
 `select * from employee;`
 
 Para exportar a un archivo la tabla creada:
-
+```SQL
 `.EXPORT REPORT FILE=file_name.csv
 .SET RECORDMODE OFF; 
 .SET FORMAT OFF ; 
@@ -245,7 +244,7 @@ SELECT * from employee;
 .EXPORT RESET
 .LOGOFF
 .EXIT`
-
+```
 Comprobar que está el archivo y ver su contenido:
 
 `ls` 
