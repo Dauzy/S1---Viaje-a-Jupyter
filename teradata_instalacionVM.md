@@ -91,7 +91,7 @@ Logon successfully completed.
 
 Ejecutar una consulta:
 
-`select * from dbc.dbcinfo`
+`select * from dbc.dbcinfo;`
 
 Aparecerá una tabla con información de la base de datos y la leyenda
 
@@ -99,7 +99,7 @@ Aparecerá una tabla con información de la base de datos y la leyenda
 
 Para salir:
 
-`quit`
+`quit;`
 
 
 ### Para conectarse desdel el host a la VM:
