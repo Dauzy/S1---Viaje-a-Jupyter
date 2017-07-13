@@ -158,7 +158,7 @@ UNIQUE PRIMARY INDEX ( EmployeeNo );`
 
 
 Insertar datos a la tabla:
-
+```sql
 `INSERT INTO Employee (
    EmployeeNo, 
    FirstName, 
@@ -175,6 +175,7 @@ VALUES (
    '2005-03-27', 
    01
 );
+```
 INSERT INTO Employee (
    EmployeeNo, 
    FirstName, 
