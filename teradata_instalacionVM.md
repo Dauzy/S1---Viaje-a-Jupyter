@@ -80,12 +80,14 @@ En el prompt del password:
 La sesión BTEQ reportará que te logeaste con éxito: 
 Logon successfully completed.
 
-` *** Teradata Database Release is 16.00.00.04                   
+```SQL 
+*** Teradata Database Release is 16.00.00.04                   
  *** Teradata Database Version is 16.00.00.04                     
  *** Transaction Semantics are BTET.
- *** Session Character Set Name is 'ASCII'. ` 
+ *** Session Character Set Name is 'ASCII'. 
  
- ` *** Total elapsed time was 1 second. `
+ *** Total elapsed time was 1 second. 
+ ```
 
 Ejecutar una consulta:
 
@@ -132,9 +134,9 @@ Para ver los comandos de BTEQ:
 
 ### Crear una base de datos y una tabla: 
 ```SQL
-`CREATE DATABASE datio 
+CREATE DATABASE datio 
 AS PERMANENT = 500000, FALLBACK, BEFORE JOURNAL, 
-DUAL AFTER JOURNAL, DEFAULT JOURNAL TABLE=datio.fin_copy;`
+DUAL AFTER JOURNAL, DEFAULT JOURNAL TABLE=datio.fin_copy;
 ```
 Listar las bases de datos para comprobar que se creó la base datio:
 
@@ -146,7 +148,7 @@ Para usar a una base de datos en particular:
 
 Crear una tabla: 
 ```SQL
-`CREATE SET TABLE EMPLOYEE ( 
+CREATE SET TABLE EMPLOYEE ( 
    EmployeeNo INTEGER, 
    FirstName VARCHAR(30), 
    LastName VARCHAR(30), 
@@ -154,12 +156,12 @@ Crear una tabla:
    JoinedDate DATE FORMAT 'YYYY-MM-DD', 
    DepartmentNo BYTEINT 
 ) 
-UNIQUE PRIMARY INDEX ( EmployeeNo );`
+UNIQUE PRIMARY INDEX ( EmployeeNo );
 ```
 
 Insertar datos a la tabla:
 ```sql
-`INSERT INTO Employee (
+INSERT INTO Employee (
    EmployeeNo, 
    FirstName, 
    LastName, 
@@ -235,7 +237,7 @@ Select para ver todos los registros:
 
 Para exportar a un archivo la tabla creada:
 ```SQL
-`.EXPORT REPORT FILE=file_name.csv
+.EXPORT REPORT FILE=file_name.csv
 .SET RECORDMODE OFF; 
 .SET FORMAT OFF ; 
 .SET TITLEDASHES OFF; 
@@ -243,7 +245,7 @@ Para exportar a un archivo la tabla creada:
 SELECT * from employee;
 .EXPORT RESET
 .LOGOFF
-.EXIT`
+.EXIT
 ```
 Comprobar que está el archivo y ver su contenido:
 
